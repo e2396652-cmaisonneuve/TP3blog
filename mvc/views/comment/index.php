@@ -5,8 +5,10 @@
         <tr>
             <th>Message</th>
             <th>User</th>
+            {% if session.privilege_id != 3 %}
             <th>View</th>
             <th>Delete</th>
+            {% endif %}
         </tr>
     </thead>
     <tbody>
@@ -14,6 +16,7 @@
         <tr>
             <td>{{comment.message}}</td>
             <td>{{comment.users_id}}</td>
+            {% if session.privilege_id != 3 %}
             <td> <a href="{{base}}/comment/show?id={{comment.id}}" class="btn">View</a></td>
             <td>
                 <form action="{{base}}/comment/delete" method="post">
@@ -21,6 +24,7 @@
                     <input type="submit" class="btn red" value="delete">
                 </form>
             </td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>

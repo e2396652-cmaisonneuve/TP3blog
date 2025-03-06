@@ -23,7 +23,7 @@ class AuthController
             $user = new User();
             $checkuser = $user->checkUser($data['username'], $data['password']);
             if ($checkuser) {
-                return View::redirect('users');
+                return View::redirect('home');
             } else {
                 $errors['message'] = 'Please check your credentials!';
                 return View::render('auth/index', ['errors' => $errors, 'user' => $data]);

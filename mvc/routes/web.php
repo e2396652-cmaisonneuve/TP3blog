@@ -5,6 +5,7 @@ use App\Controllers\UserController;
 use App\Controllers\ArticleController;
 use App\Controllers\CommentController;
 use App\Controllers\CategorieController;
+use App\Controllers\DashboardController;
 use App\Routes\Route;
 
 Route::get('/login', 'AuthController@index');
@@ -45,5 +46,7 @@ Route::get('/categorie/show', 'CategorieController@show');
 Route::get('/categorie/edit', 'CategorieController@edit');
 Route::post('/categorie/edit', 'CategorieController@update');
 Route::post('/categorie/delete', 'CategorieController@delete');
+
+Route::get('/dashboard', 'DashboardController@index');
 
 Route::dispatch();

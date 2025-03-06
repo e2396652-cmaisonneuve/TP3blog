@@ -203,6 +203,15 @@ footer a:hover {
   padding: 30px;
 }
 
+.container_login {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 30px;
+  max-width: 35%;
+}
+
 .post-footer {
   display: flex;
   justify-content: space-between;

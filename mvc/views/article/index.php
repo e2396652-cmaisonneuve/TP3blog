@@ -7,8 +7,10 @@
             <th>Content</th>
             <th>User</th>
             <th>Date</th>
+            {% if session.privilege_id != 3 %}
             <th>View</th>
             <th>Delete</th>
+            {% endif %}
         </tr>
     </thead>
     <tbody>
@@ -18,6 +20,7 @@
             <td>{{article.content}}</td>
             <td>{{article.users_id}}</td>
             <td>{{article.date}}</td>
+            {% if session.privilege_id != 3 %}
             <td> <a href="{{base}}/article/show?id={{article.id}}" class="btn">View</a></td>
             <td>
                 <form action="{{base}}/article/delete" method="post">
@@ -25,6 +28,7 @@
                     <input type="submit" class="btn red" value="delete">
                 </form>
             </td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>

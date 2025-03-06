@@ -18,6 +18,7 @@
                 <ul>
                     <li><a href="{{base}}/home">Home</a></li>
                     {% if session.privilege_id == 1 %}
+                    <li><a href="{{base}}/dashboard">Dashboard</a></li>
                     <li><a href="{{base}}/users">View Users</a></li>
                     <li><a href="{{base}}/user/create">Create User</a></li>
                     {% endif %}

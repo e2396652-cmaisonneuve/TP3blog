@@ -56,7 +56,7 @@ class UserController
         $validator->field('password', $data['password'])->required()->max(45);
         $validator->field('name', $data['name'])->min(3)->max(25);
         $validator->field('email', $data['email'])->required()->max(45)->email();
-        // DA ERRO -> $validator->field('privilege_id', $data['privilege_id'])->required()->int();
+        //$validator->field('privilege_id', $data['privilege_id'])->required()->int();
 
 
         if ($validator->isSuccess()) {
@@ -95,10 +95,10 @@ class UserController
     {
         $validator = new Validator;
         $validator->field('username', $data['username'])->min(3)->max(25);
-        $validator->field('password', $data['password'])->required()->max(45);
+        $validator->field('password', $data['password'])->required();
         $validator->field('name', $data['name'])->min(3)->max(25);
         $validator->field('email', $data['email'])->required()->max(45)->email();
-        $validator->field('privilege_id', $data['privilege_id'])->required()->int();
+        //$validator->field('privilege_id', $data['privilege_id'])->required()->int();
 
         if ($validator->isSuccess()) {
             $user = new User;

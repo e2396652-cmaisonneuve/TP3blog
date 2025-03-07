@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\User;
 use App\Providers\View;
 use App\Providers\Validator;
+use App\Models\Dashboard;
 
 class AuthController
 {

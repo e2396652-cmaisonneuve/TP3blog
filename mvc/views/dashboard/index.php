@@ -1,16 +1,16 @@
 {{ include('layouts/header.php', {title: 'Dashboard '} )}}
 
 <div class="wrapper">
-    <h1>Journal de bord</h1>
+    <h1>Dashboard</h1>
 
     <div>
         {% for dashboard in dashboards %}
-        <div>
+        <div class="dashboard">
 
-            <p><small>Username:</small> <small>{{ dashboard.username }}</small></p>
-            <p><small>IP address:</small> <small>{{ dashboard.adresseIP }}</small></p>
-            <p><small>Page:</small> <small>{{ dashboard.page }}</small></p>
-            <p><small>Date:</small> <small>{{ dashboard.dateTime }}</small></p>
+            <p><strong>Username:</strong> {{ dashboard.userName }}</p>
+            <p><strong>IP address:</strong> {{ dashboard.adressIP }}</p>
+            <p><strong>Page:</strong> {{ dashboard.page }}</p>
+            <p><strong>Date:</strong> {{ dashboard.dateTime }}</p>
         </div>
         {% endfor %}
     </div>

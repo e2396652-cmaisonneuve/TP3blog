@@ -21,6 +21,7 @@
                     <li><a href="{{base}}/dashboard">Dashboard</a></li>
                     <li><a href="{{base}}/users">View Users</a></li>
                     <li><a href="{{base}}/user/create">Create User</a></li>
+                    <li><a href="{{base}}/categorie/create">Add Categorie</a></li>
                     {% endif %}
                     {% if session.privilege_id == 2 %}
                     <li><a href="{{base}}/categorie/create">Add Categorie</a></li>

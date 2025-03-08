@@ -1,7 +1,7 @@
 {{ include('layouts/header.php', {title:'Article Create'})}}
 <div class="container">
-    <form method="post">
-    <h1>New article</h1>
+    <form method="post" enctype="multipart/form-data">
+        <h1>New article</h1>
         <label>Title
             <input type="text" name="title" value="{{article.title}}">
         </label>
@@ -15,24 +15,31 @@
         <span class="error"> {{errors.content}}</span>
         {% endif %}
         <label>User
-               <select name="users_id">
+            <select name="users_id">
+                <option value="">Select user</option>
                 {% for user in users %}
                 <option value="{{ user.id}}">{{ user.name}}</option>
                 {% endfor %}
-                </select>
-            </label>
-            <label>Categorie
-               <select name="categories_id">
+            </select>
+        </label>
+        <label>Categorie
+            <select name="categories_id">
+                <option value="">Select categorie</option>
                 {% for categorie in categories %}
                 <option value="{{ categorie.id}}">{{ categorie.name}}</option>
                 {% endfor %}
-                </select>
-            </label>
+            </select>
+        </label>
         <label>Date
             <input type="date" id="date" name="date">
         </label>
         {% if errors.date is defined %}
         <span class="error"> {{errors.date}}</span>
+        {% endif %}
+        <label>Select image to upload: </label>
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        {% if errors.fileToUpload is defined %}
+        <span class="error">{{errors.fileToUpload}}</span>
         {% endif %}
 
         <input type="submit" value="Save" class="btn">

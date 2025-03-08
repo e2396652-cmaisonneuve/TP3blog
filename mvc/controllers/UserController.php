@@ -56,7 +56,9 @@ class UserController
         $validator->field('password', $data['password'])->required()->max(45);
         $validator->field('name', $data['name'])->min(3)->max(25);
         $validator->field('email', $data['email'])->required()->max(45)->email();
-        //$validator->field('privilege_id', $data['privilege_id'])->required()->int();
+        if ($_FILES["fileToUpload"]["size"] > 0 || $_FILES["fileToUpload"]["error"] == 1) {
+            $validator->field('fileToUpload', $_FILES, "Image")->image();
+        }
 
 
         if ($validator->isSuccess()) {

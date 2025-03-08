@@ -1,7 +1,7 @@
 {{ include('layouts/header.php', {title:'Article Edit'})}}
 <div class="container">
     <form method="post">
-    <h1>Edit Article</h1>
+        <h1>Edit Article</h1>
         <label>Title
             <input type="text" name="title" value="{{article.title}}">
         </label>
@@ -9,26 +9,34 @@
         <span class="error"> {{errors.title}}</span>
         {% endif %}
         <label>Content<br>
-            <textarea id="content" name="content" rows="4" cols="50" value="{{article.content}}">{{article.content}}</textarea>
+            <textarea id="content" name="content" rows="6" cols="75" value="{{article.content}}">{{article.content}}</textarea>
         </label>
         {% if errors.content is defined %}
         <span class="error"> {{errors.content}}</span>
         {% endif %}
         <label>User
-               <select name="users_id">
+            <select name="users_id">
+                <option value="">Select user</option>
                 {% for user in users %}
-                <option value="{{ user.id}}">{{ user.name}}</option>
+                <option value="{{ user.id}}" {% if privilege.id== articles.users_id %} selected {% endif %}>{{ user.name}}</option>
                 {% endfor %}
-                </select>
-            </label>
-            <label>Categorie
-               <select name="categories_id">
+            </select>
+        </label>
+        {% if errors.user is defined %}
+        <span class="error"> {{errors.user}}</span>
+        {% endif %}
+        <label>Categorie
+            <select name="categories_id">
+                <option value="">Select categorie</option>
                 {% for categorie in categories %}
-                <option value="{{ categorie.id}}">{{ categorie.name}}</option>
+                <option value="{{ categorie.id}}" {% if privilege.id== articles.categories_id %} selected {% endif %}>{{ categorie.name }}</option>
                 {% endfor %}
-                </select>
-            </label>
-            <label>Date
+            </select>
+        </label>
+        {% if errors.categorie is defined %}
+        <span class="error"> {{errors.categorie}}</span>
+        {% endif %}
+        <label>Date
             <input type="date" id="date" name="date" value="{{article.date}}">
         </label>
         {% if errors.date is defined %}

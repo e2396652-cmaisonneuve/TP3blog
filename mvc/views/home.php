@@ -6,6 +6,13 @@
     <h2>{{article.title}}</h2>
     <div class="categories"><small>Category: {{article.categorie}}</small></div>
   </div>
+  <div>
+    {% if article.fileToUpload %}
+    <picture>
+      <img src="{{upload}}{{article.fileToUpload}}" alt="Image">
+    </picture>
+    {% endif %}
+  </div>
   <div class="post-content">
     <p>{{article.content}}</p>
   </div>
@@ -22,11 +29,19 @@
       <div class="comment-info"><small>{{comment.name}} on {{comment.date}}</small></div>
     </div>
     {% endfor %}
-    <div class="comment-text"><small><h3><a href="{{base}}/comment/create">Join the conversation! Leave a comment.</a></small></p></div>
+    <div class="comment-text"><small>
+        <h3><a href="{{base}}/comment/create">Join the conversation! Leave a comment.</a>
+      </small></p>
+    </div>
 
   </div>
   {% else %}
-  <div class="post-comments"><div class="comment-text"><small><h3>No comments yet, click <a href="{{base}}/comment/create">here to add one</a>.</small></p></div></div>
+  <div class="post-comments">
+    <div class="comment-text"><small>
+        <h3>No comments yet, click <a href="{{base}}/comment/create">here to add one</a>.
+      </small></p>
+    </div>
+  </div>
   {% endif %}
 </article>{% endfor %}
 

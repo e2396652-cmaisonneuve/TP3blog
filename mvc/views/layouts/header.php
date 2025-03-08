@@ -28,6 +28,7 @@
                     {% endif %}
                     {% if guest %}
                     <li><a href="{{base}}/login">Login</a></li>
+                    <li><a href="{{base}}/user/create">Create User</a></li>
                     {% else %}
                     <li><a href="{{base}}/article/create">Add Article</a></li>
                     <li><a href="{{base}}/comment/create">Add Comment</a></li>

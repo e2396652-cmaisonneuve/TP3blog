@@ -4,6 +4,7 @@
     <thead>
         <tr>
             <th>Title</th>
+            <th>Image</th>
             <th>Content</th>
             <th>User</th>
             <th>Date</th>
@@ -17,6 +18,12 @@
         {% for article in articles %}
         <tr>
             <td>{{article.title}}</td>
+            <td> {% if article.fileToUpload %}
+                <picture>
+                    <img src="{{upload}}{{article.fileToUpload}}" alt="Image">
+                </picture>
+                {% endif %}
+            </td>
             <td>{{article.content}}</td>
             <td>{{article.users_id}}</td>
             <td>{{article.date}}</td>

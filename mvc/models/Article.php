@@ -8,5 +8,5 @@ class Article extends CRUD
 {
     protected $table = 'articles';
     protected $primaryKey = 'id';
-    protected $fillable = ['title', 'content', 'date', 'users_id', 'categories_id'];
+    protected $fillable = ['title', 'content', 'date', 'fileToUpload', 'users_id', 'categories_id'];
 }

@@ -53,6 +53,7 @@ body {
   position: relative;
   background-image: url("../img/header_blog.jpg");
   background-size: cover;
+  object-fit: cover;
   background-repeat: no-repeat;
   background-color: #050772;
   padding: 5rem 0;
@@ -149,6 +150,11 @@ article p {
   color: #333333;
   line-height: 1.6;
   font-size: 1rem;
+}
+
+article img {
+  /* min-width: 60vw; */
+  max-width: 60vw;
 }
 
 .container-info {
@@ -354,4 +360,8 @@ select {
   margin-top: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid #eeeeee;
+}
+
+.image-show {
+  max-width: 200px;
 }

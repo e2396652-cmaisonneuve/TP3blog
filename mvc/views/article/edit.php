@@ -42,6 +42,11 @@
         {% if errors.date is defined %}
         <span class="error"> {{errors.date}}</span>
         {% endif %}
+        <label>Select image to upload: </label>
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        {% if errors.fileToUpload is defined %}
+        <span class="error">{{errors.fileToUpload}}</span>
+        {% endif %}
         <input type="submit" value="Save" class="btn">
     </form>
 </div>

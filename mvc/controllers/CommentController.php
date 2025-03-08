@@ -19,14 +19,13 @@ class CommentController
     }
 
     public function create()
-    {   
+    {
         $user = new User;
         $select = $user->Select();
 
         $article = new Article;
         $selectArt = $article->Select();
-        return View::render('comment/create', ['users' => $select, 'articles' => $selectArt]);	
-        
+        return View::render('comment/create', ['users' => $select, 'articles' => $selectArt]);
     }
 
     public function show($data = [])
@@ -61,7 +60,7 @@ class CommentController
             $errors = $validator->getErrors();
             $user = new User;
             $select = $user->Select();
-    
+
             $article = new Article;
             $selectArt = $article->Select();
             return View::render('comment/create', ['errors' => $errors, 'comment' => $data, 'users' => $select, 'articles' => $selectArt]);
@@ -77,7 +76,7 @@ class CommentController
                 $select = $user->Select();
                 $article = new Article;
                 $selectArt = $article->Select();
-                return View::render('comment/edit', ['comment' => $selectId,'users' => $select, 'articles' => $selectArt]);
+                return View::render('comment/edit', ['comment' => $selectId, 'users' => $select, 'articles' => $selectArt]);
             } else {
                 return View::render('error', ['msg' => "Comment doesn't exist"]);
             }

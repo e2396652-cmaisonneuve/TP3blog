@@ -6,7 +6,6 @@
             <th>Title</th>
             <th>Image</th>
             <th>Content</th>
-            <th>User</th>
             <th>Date</th>
             {% if session.privilege_id != 3 %}
             <th>View</th>
@@ -20,12 +19,11 @@
             <td>{{article.title}}</td>
             <td> {% if article.fileToUpload %}
                 <picture>
-                    <img src="{{upload}}{{article.fileToUpload}}" alt="Image">
+                    <img src="{{upload}}{{article.fileToUpload}}" alt="Image" class="image-show">
                 </picture>
                 {% endif %}
             </td>
             <td>{{article.content}}</td>
-            <td>{{article.users_id}}</td>
             <td>{{article.date}}</td>
             {% if session.privilege_id != 3 %}
             <td> <a href="{{base}}/article/show?id={{article.id}}" class="btn">View</a></td>

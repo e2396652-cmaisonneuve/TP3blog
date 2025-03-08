@@ -81,14 +81,8 @@ class Validator
             return $this;
         };
 
-        // $target_file = $_SERVER["DOCUMENT_ROOT"] . UPLOAD . basename($this->value["fileToUpload"]["name"]);
-        // $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        $target_dir = "uploads/";
-        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-        $uploadOk = 1;
+        $target_file = $_SERVER["DOCUMENT_ROOT"] . UPLOAD . basename($this->value["fileToUpload"]["name"]);
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-
 
         // Check if image file is a actual image or fake image
         $check = getimagesize($this->value["fileToUpload"]["tmp_name"]);

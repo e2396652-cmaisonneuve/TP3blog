@@ -55,12 +55,10 @@ class ArticleController
 
         if ($validator->isSuccess()) {
             $article = new Article;
-            $insert = $article->insert($data);
-
             $target_file = $_SERVER["DOCUMENT_ROOT"] . UPLOAD . basename($_FILES["fileToUpload"]["name"]);
             $moved = move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
-
             $data['fileToUpload'] = basename($_FILES["fileToUpload"]["name"]);
+            $insert = $article->insert($data);
 
             if ($insert) {
                 return view::redirect('article/show?id=' . $insert);
@@ -101,20 +99,33 @@ class ArticleController
         $validator->field('title', $data['title'])->min(5)->max(80);
         $validator->field('content', $data['content'])->min(5);
         $validator->field('date', $data['date'])->required();
+        if ($_FILES["fileToUpload"]["size"] > 0 || $_FILES["fileToUpload"]["error"] == 1) {
+            $validator->field('fileToUpload', $_FILES, "Image")->image();
+        }
 
         if ($validator->isSuccess()) {
             $article = new Article;
-            $update = $article->update($data, $get['id']);
+            $target_file = $_SERVER["DOCUMENT_ROOT"] . UPLOAD . basename($_FILES["fileToUpload"]["name"]);
+            $moved = move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
+            $data['fileToUpload'] = basename($_FILES["fileToUpload"]["name"]);
+            $update = $article->update($data);
+
             if ($update) {
-                return view::redirect('article/show?id=' . $get['id']);
+                return view::redirect('article/show?id=' . $update);
             } else {
                 return View::render('error');
             }
         } else {
             $errors = $validator->getErrors();
-            return View::render('article/edit', ['errors' => $errors, 'article' => $data]);
+            $user = new User;
+            $select = $user->Select();
+
+            $categorie = new Categorie;
+            $selectCat = $categorie->Select();
+            return View::render('article/create', ['errors' => $errors, 'article' => $data, 'users' => $select, 'categories' => $selectCat]);
         }
     }
+
 
     public function delete($data = [])
     {

@@ -6,6 +6,6 @@
 
 - - - - -
 
-![DB](https://raw.githubusercontent.com/e2396652-cmaisonneuve/TP3blog/refs/heads/main/db/tp3blog_dashboard.png)
+![DB](https://raw.githubusercontent.com/e2396652-cmaisonneuve/TP3blog/refs/heads/main/db/tp3blog.png)
 
 

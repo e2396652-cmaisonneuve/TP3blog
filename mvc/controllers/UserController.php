@@ -56,10 +56,6 @@ class UserController
         $validator->field('password', $data['password'])->required()->max(45);
         $validator->field('name', $data['name'])->min(3)->max(25);
         $validator->field('email', $data['email'])->required()->max(45)->email();
-        if ($_FILES["fileToUpload"]["size"] > 0 || $_FILES["fileToUpload"]["error"] == 1) {
-            $validator->field('fileToUpload', $_FILES, "Image")->image();
-        }
-
 
         if ($validator->isSuccess()) {
 
@@ -67,7 +63,7 @@ class UserController
             $data['password'] = $user->hashPassword($data['password']);
             $insert = $user->insert($data);
             if ($insert) {
-                return View::redirect('login');
+                return View::redirect('user/show');
             } else {
                 return View::render('error');
             }
@@ -100,7 +96,6 @@ class UserController
         $validator->field('password', $data['password'])->required();
         $validator->field('name', $data['name'])->min(3)->max(25);
         $validator->field('email', $data['email'])->required()->max(45)->email();
-        //$validator->field('privilege_id', $data['privilege_id'])->required()->int();
 
         if ($validator->isSuccess()) {
             $user = new User;

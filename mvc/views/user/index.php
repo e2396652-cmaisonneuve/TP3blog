@@ -4,6 +4,7 @@
     <thead>
         <tr>
             <th>Username</th>
+            <th>ID</th>
             <!-- <th>Password</th> -->
             <th>Name</th>
             <th>Email</th>
@@ -18,6 +19,7 @@
         {% for user in users %}
         <tr>
             <td>{{user.username}}</td>
+            <td>{{user.id}}</td>
             <!-- <td>{{user.password}}</td> -->
             <td>{{user.name}}</td>
             <td>{{user.email}}</td>

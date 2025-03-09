@@ -92,6 +92,14 @@ header h1 {
   text-transform: uppercase;
 }
 
+header h1 a {
+  color: white;
+}
+
+header h1 a:visited {
+  color: white;
+}
+
 /*=====================
   GENERAL
   =====================*/
@@ -364,4 +372,14 @@ select {
 
 .image-show {
   max-width: 200px;
+}
+
+.td__view {
+  width: 100px;
+  align-content: center;
+}
+
+.image-post {
+  max-width: 60vw;
+  min-width: 60vw;
 }

@@ -15,8 +15,8 @@
         <tr>
             <td>{{categorie.name}}</td>
             {% if session.privilege_id != 3 %}
-            <td> <a href="{{base}}/categorie/show?id={{categorie.id}}" class="btn">View</a></td>
-            <td>
+            <td class="td__view"> <a href="{{base}}/categorie/show?id={{categorie.id}}" class="btn">View</a></td>
+            <td class="td__view">
                 <form action="{{base}}/categorie/delete" method="post">
                     <input type="hidden" name="id" value="{{categorie.id}}">
                     <input type="submit" class="btn red" value="delete">

@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="header-img container-top">
-            <h1>Blog</h1>
+            <h1><a href="{{base}}/home">Blog</a></h1>
         </div>
         <div class="container-top">
             <nav>

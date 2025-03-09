@@ -9,7 +9,7 @@
   <div>
     {% if article.fileToUpload %}
     <picture>
-      <img src="{{upload}}{{article.fileToUpload}}" alt="Image">
+      <img src="{{upload}}{{article.fileToUpload}}" alt="Image" class="image-post">
     </picture>
     {% endif %}
   </div>

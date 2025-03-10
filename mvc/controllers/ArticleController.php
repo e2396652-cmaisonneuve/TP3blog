@@ -27,6 +27,7 @@ class ArticleController
 
         $categorie = new Categorie;
         $selectCat = $categorie->Select();
+        
         return View::render('article/create', ['users' => $select, 'categories' => $selectCat]);
     }
 
@@ -57,7 +58,8 @@ class ArticleController
 
         if ($validator->isSuccess()) {
             $article = new Article;
-            $target_file = $_SERVER["DOCUMENT_ROOT"] . UPLOAD . basename($_FILES["fileToUpload"]["name"]);
+            $folderUpload = __DIR__ . '/../public/uploads/';
+            $target_file = $folderUpload . basename($_FILES["fileToUpload"]["name"]);
             $moved = move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
             $data['fileToUpload'] = basename($_FILES["fileToUpload"]["name"]);
             $insert = $article->insert($data);

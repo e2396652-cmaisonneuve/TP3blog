@@ -23,8 +23,9 @@
                 </picture>
                 {% endif %}
             </td>
-            <td>{{article.content}}</td>
-            <td>{{article.date}}</td>
+            <td>{{article.content|slice(0, 250) ~ '...' }}</td>
+
+            <td>{{article.date|date("d/m/Y")}}</td>
             {% if session.privilege_id != 3 %}
             <td> <a href="{{base}}/article/show?id={{article.id}}" class="btn">View</a></td>
             <td>

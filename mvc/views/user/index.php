@@ -5,7 +5,7 @@
         <tr>
             <th>Username</th>
             <th>ID</th>
-            <!-- <th>Password</th> -->
+            <th>Password</th>
             <th>Name</th>
             <th>Email</th>
             <th>Privilege</th>
@@ -20,7 +20,7 @@
         <tr>
             <td>{{user.username}}</td>
             <td>{{user.id}}</td>
-            <!-- <td>{{user.password}}</td> -->
+            <td class="td_password">{{user.password|slice(0, 10) ~ '...' }}</td>
             <td>{{user.name}}</td>
             <td>{{user.email}}</td>
             <td>{{user.privilege_id}}</td>

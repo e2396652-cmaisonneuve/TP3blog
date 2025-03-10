@@ -34,6 +34,9 @@
                 {% endfor %}
             </select>
         </label>
+        {% if errors.privilege is defined %}
+        <span class="error"> {{errors.privilege}}</span>
+        {% endif %}
         <input type="submit" value="Save" class="btn">
     </form>
 </div>

@@ -22,6 +22,9 @@
                 {% endfor %}
             </select>
         </label>
+        {% if errors.user is defined %}
+        <span class="error"> {{errors.user}}</span>
+        {% endif %}
         <label>Categorie
             <select name="categories_id">
                 <option value="">Select categorie</option>
@@ -30,6 +33,9 @@
                 {% endfor %}
             </select>
         </label>
+        {% if errors.categorie is defined %}
+        <span class="error"> {{errors.categorie}}</span>
+        {% endif %}
         <label>Date
             <input type="date" id="date" name="date">
         </label>

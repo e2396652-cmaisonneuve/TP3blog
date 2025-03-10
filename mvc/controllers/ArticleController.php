@@ -49,6 +49,8 @@ class ArticleController
         $validator->field('title', $data['title'])->min(5)->max(80);
         $validator->field('content', $data['content'])->min(5);
         $validator->field('date', $data['date'])->required();
+        $validator->field('user', $data['users_id'])->required();
+        $validator->field('categorie', $data['categories_id'])->required();
         if ($_FILES["fileToUpload"]["size"] > 0 || $_FILES["fileToUpload"]["error"] == 1) {
             $validator->field('fileToUpload', $_FILES, "Image")->image();
         }

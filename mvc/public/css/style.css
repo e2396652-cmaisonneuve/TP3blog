@@ -383,3 +383,10 @@ select {
   max-width: 60vw;
   min-width: 60vw;
 }
+
+.td__password {
+  width: 20px;
+  align-content: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

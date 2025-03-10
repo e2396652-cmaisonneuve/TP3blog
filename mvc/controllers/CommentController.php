@@ -46,6 +46,8 @@ class CommentController
         $validator = new Validator;
         $validator->field('message', $data['message'])->required()->min(3);
         $validator->field('date', $data['date'])->required();
+        $validator->field('user', $data['users_id'])->required();
+        $validator->field('article', $data['articles_id'])->required();
 
 
         if ($validator->isSuccess()) {

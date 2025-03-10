@@ -17,7 +17,7 @@
     <p>{{article.content}}</p>
   </div>
   <div class="post-footer">
-    <div class="post-info">by {{article.user}} (<a href="mailto:{{article.email}}">{{article.email}}</a>)</strong> on {{article.date}}</div>
+    <div class="post-info">by {{article.user}} (<a href="mailto:{{article.email}}">{{article.email}}</a>)</strong> on {{article.date|date("d/m/Y")}}</div>
     <div class="post-edit"><a href="{{base}}/article/edit?id={{ article.id }}">Edit</a></div>
   </div>
   {% if article.comments|length > 0 %}
@@ -26,7 +26,7 @@
     {% for comment in article.comments %}
     <div class="comment">
       <div class="comment-text">{{comment.message}}</div>
-      <div class="comment-info"><small>{{comment.name}} on {{comment.date}}</small></div>
+      <div class="comment-info"><small>{{comment.name}} on {{comment.date|date("d/m/Y")}}</small></div>
     </div>
     {% endfor %}
     <div class="comment-text"><small>

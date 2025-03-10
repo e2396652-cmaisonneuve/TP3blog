@@ -15,20 +15,29 @@
         <span class="error"> {{errors.date}}</span>
         {% endif %}
         <label>User
-               <select name="users_id">
+            <select name="users_id">
+                <option value="">Select user</option>
                 {% for user in users %}
                 <option value="{{ user.id}}">{{ user.name}}</option>
                 {% endfor %}
-                </select>
-            </label>
-            <label>Article
-               <select name="articles_id">
+            </select>
+        </label>
+        {% if errors.user is defined %}
+        <span class="error"> {{errors.user}}</span>
+        {% endif %}
+        <label>Article
+            <select name="articles_id">
+                <option value="">Select article</option>
                 {% for article in articles %}
                 <option value="{{ article.id}}">{{ article.title}}</option>
                 {% endfor %}
-                </select>
-            </label>
+            </select>
+        </label>
+        {% if errors.article is defined %}
+        <span class="error"> {{errors.article}}</span>
+        {% endif %}
         <input type="submit" value="Save" class="btn">
+
     </form>
 </div>
 {{ include('layouts/footer.php')}}

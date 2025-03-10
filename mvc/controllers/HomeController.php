@@ -14,13 +14,14 @@ class HomeController
     public function index()
     {
         $article = new Article;
-        $select = $article->select('id');
+        $select = $article->select('date');
 
-        foreach($select as &$row){
+
+        foreach ($select as &$row) {
             $categorie = new Categorie;
             $cat = $categorie->selectId($row['categories_id']);
             $row['categorie'] = $cat['name'];
-            
+
             $user = new User;
             $use = $user->selectId($row['users_id']);
             $row['user'] = $use['name'];
@@ -29,18 +30,17 @@ class HomeController
 
             $comment = new Comment;
             $com = $comment->selectWhere('articles_id', $row['id']);
-           if($com){
-                foreach($com as &$commen){
+            if ($com) {
+                foreach ($com as &$commen) {
                     $author = new User;
                     $aut = $author->selectId($commen['users_id']);
                     $commen['name'] = $aut['name'];
                 }
-           }
-           
+            }
+
             $row['comments'] = $com;
         }
-        
+
         return View::render('home', ['articles' => $select]);
     }
-
- }
+}
